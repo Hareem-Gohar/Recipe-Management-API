@@ -1,9 +1,8 @@
-```markdown
-# Backend Application
+# Recipe-Management-API
 
 ## Introduction
 
-This project is a **Recipe Management API** built with **Node.js** and **Express**, and powered by **MongoDB**. The API allows users to manage recipes, leave comments, rate dishes, add favorites, read blogs, and more. It is designed to handle both regular users and administrators, with secure authentication and authorization systems in place.
+This project is a **Recipe Management API** built with **Node.js**, **Express**, and powered by **MongoDB**. The API allows users to manage recipes, leave comments, rate dishes, add favorites, read blogs, and more. It is designed to handle both regular users and administrators, with secure authentication and authorization systems in place.
 
 This backend is built with flexibility and scalability in mind, supporting easy integration with a frontend application. It also includes testing capabilities using **MongoMemoryServer**, allowing for isolated MongoDB simulations during development.
 
@@ -52,50 +51,49 @@ Whether you're looking to build a recipe platform, extend the features, or creat
 - **In-Memory Database for Testing**: MongoMemoryServer
 
 ## Project Structure
-```
 
+```plaintext
 backend/
 ├── src/
-│ ├── Controllers/ # Functions for handling routes
-│ │ └── BlogController.js
-│ │ └── CommentController.js
-│ │ └── RatingController.js
-│ │ └── FavoriteController.js
-│ │ └── RecipeController.js
-│ │ └── UserController.js
-│ ├── Models/ # Mongoose models
-│ │ └── BlogModel.js
-│ │ └── CommentModel.js
-│ │ └── RatingModel.js
-│ │ └── FavoriteModel.js
-│ │ └── recipes.js
-│ │ └── user.js
-│ ├── Routes/ # Routes
-│ │ └── BlogRoutes.js
-│ │ └── CommentRoutes.js
-│ │ └── FavoriteRoutes.js
-│ │ └── RatingRoutes.js
-│ │ └── RecipeRoutes.js
-│ │ └── UserRoutes.js
-│ ├── Config/ # Configuration files
-│ │ └── db.js
-│ ├── app.js # Express app setup
-│ └── index.js # Entry point
-├── Middleware/ # Authentication middleware
-│ ├── AuthMiddleware.js
-│ ├── AdminAuthMiddleware.js
-├── tests/ # Testing
-│ ├── auth.test.js
-│ ├── blog.test.js
-│ ├── favorite.test.js
-│ ├── rating.test.js
-│ ├── recipe.test.js
-├── .env # Environment variables
-├── package.json # Project dependencies
-├── jest.setup.js # Jest configuration
-└── README.md # Documentation
-
-````
+│   ├── Controllers/        # Functions for handling routes
+│   │   ├── BlogController.js
+│   │   ├── CommentController.js
+│   │   ├── RatingController.js
+│   │   ├── FavoriteController.js
+│   │   ├── RecipeController.js
+│   │   └── UserController.js
+│   ├── Models/             # Mongoose models
+│   │   ├── BlogModel.js
+│   │   ├── CommentModel.js
+│   │   ├── RatingModel.js
+│   │   ├── FavoriteModel.js
+│   │   ├── Recipe.js
+│   │   └── User.js
+│   ├── Routes/             # Route definitions
+│   │   ├── BlogRoutes.js
+│   │   ├── CommentRoutes.js
+│   │   ├── FavoriteRoutes.js
+│   │   ├── RatingRoutes.js
+│   │   ├── RecipeRoutes.js
+│   │   └── UserRoutes.js
+│   ├── Config/             # Configuration files
+│   │   └── db.js
+│   ├── app.js              # Express app setup
+│   └── index.js            # Entry point
+├── Middleware/             # Authentication middleware
+│   ├── AuthMiddleware.js
+│   └── AdminAuthMiddleware.js
+├── tests/                  # Testing files
+│   ├── auth.test.js
+│   ├── blog.test.js
+│   ├── favorite.test.js
+│   ├── rating.test.js
+│   └── recipe.test.js
+├── .env                    # Environment variables
+├── package.json            # Project dependencies
+├── jest.setup.js           # Jest configuration
+└── README.md               # Documentation
+```
 
 ## Getting Started
 
@@ -112,7 +110,7 @@ backend/
    ```bash
    git clone https://github.com/Hareem-Gohar/Recipe-Management-API.git
    cd Recipe-Management-API
-````
+   ```
 
 2. Install dependencies:
 
@@ -156,27 +154,27 @@ npm run start:prod
 
 | Method | Endpoint              | Description         |
 | ------ | --------------------- | ------------------- |
-| GET    | `/api/recipes`        | Fetch all recipes   |
-| POST   | `/api/users/register` | Register a new user |
+| `GET`  | `/api/recipes`        | Fetch all recipes   |
+| `POST` | `/api/users/register` | Register a new user |
 
 ### Protected Endpoints
 
 | Method | Endpoint                  | Description                 |
 | ------ | ------------------------- | --------------------------- |
-| POST   | `/api/favorites`          | Add a recipe to favorites   |
-| GET    | `/api/comments/:recipeId` | Fetch comments for a recipe |
+| `POST` | `/api/favorites`          | Add a recipe to favorites   |
+| `GET`  | `/api/comments/:recipeId` | Fetch comments for a recipe |
 
 ### Admin Endpoints
 
-| Method | Endpoint           | Description            |
-| ------ | ------------------ | ---------------------- |
-| DELETE | `/api/recipes/:id` | Delete a recipe        |
-| POST   | `/api/blogs`       | Create a new blog post |
+| Method   | Endpoint           | Description            |
+| -------- | ------------------ | ---------------------- |
+| `DELETE` | `/api/recipes/:id` | Delete a recipe        |
+| `POST`   | `/api/blogs`       | Create a new blog post |
 
 ## Middleware
 
-- **`AuthMiddleware`**: Protects routes by verifying the JWT token.
-- **`AdminAuthMiddleware`**: Ensures only admin users access certain routes.
+- **AuthMiddleware**: Protects routes by verifying the JWT token.
+- **AdminAuthMiddleware**: Ensures only admin users access certain routes.
 
 ## Testing with MongoMemoryServer
 
@@ -202,8 +200,4 @@ Contributions are welcome! Feel free to open issues or submit pull requests to e
 
 ## Contact
 
-For any queries or support, contact me at [malikzarsh2@gmail.com].
-
-```
-
-```
+For any queries or support, contact me at [malikzarsh2@gmail.com](mailto:malikzarsh2@gmail.com).
