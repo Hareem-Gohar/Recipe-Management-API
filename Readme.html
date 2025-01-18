@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Backend Application</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p>Here's an improved version of your <code>README.md</code> with a Table of Contents (TOC), better structure, and enhanced readability:</p>
+<pre><code class="language-markdown"><span class="hljs-section"># Backend Application</span>
+
+This is the backend application for managing recipes, users, comments, favorites, ratings, and blogs. The application is built using <span class="hljs-strong">**Node.js**</span>, <span class="hljs-strong">**Express**</span>, and <span class="hljs-strong">**MongoDB**</span>. It includes authentication and authorization features, making it secure and scalable.
+
+<span class="hljs-section">## Table of Contents</span>
+
+<span class="hljs-bullet">-</span> [<span class="hljs-string">Features</span>](<span class="hljs-link">#features</span>)
+<span class="hljs-bullet">-</span> [<span class="hljs-string">Tech Stack</span>](<span class="hljs-link">#tech-stack</span>)
+<span class="hljs-bullet">-</span> [<span class="hljs-string">Project Structure</span>](<span class="hljs-link">#project-structure</span>)
+<span class="hljs-bullet">-</span> [<span class="hljs-string">Getting Started</span>](<span class="hljs-link">#getting-started</span>)
+<span class="hljs-bullet">  -</span> [<span class="hljs-string">Prerequisites</span>](<span class="hljs-link">#prerequisites</span>)
+<span class="hljs-bullet">  -</span> [<span class="hljs-string">Installation</span>](<span class="hljs-link">#installation</span>)
+<span class="hljs-bullet">  -</span> [<span class="hljs-string">Running the Server</span>](<span class="hljs-link">#running-the-server</span>)
+<span class="hljs-bullet">  -</span> [<span class="hljs-string">Running Tests</span>](<span class="hljs-link">#running-tests</span>)
+<span class="hljs-bullet">-</span> [<span class="hljs-string">API Endpoints</span>](<span class="hljs-link">#api-endpoints</span>)
+<span class="hljs-bullet">  -</span> [<span class="hljs-string">Public Endpoints</span>](<span class="hljs-link">#public-endpoints</span>)
+<span class="hljs-bullet">  -</span> [<span class="hljs-string">Protected Endpoints</span>](<span class="hljs-link">#protected-endpoints</span>)
+<span class="hljs-bullet">  -</span> [<span class="hljs-string">Admin Endpoints</span>](<span class="hljs-link">#admin-endpoints</span>)
+<span class="hljs-bullet">-</span> [<span class="hljs-string">Middleware</span>](<span class="hljs-link">#middleware</span>)
+<span class="hljs-bullet">-</span> [<span class="hljs-string">Testing with MongoMemoryServer</span>](<span class="hljs-link">#testing-with-mongodb-memory-server</span>)
+<span class="hljs-bullet">-</span> [<span class="hljs-string">License</span>](<span class="hljs-link">#license</span>)
+<span class="hljs-bullet">-</span> [<span class="hljs-string">Author</span>](<span class="hljs-link">#author</span>)
+<span class="hljs-bullet">-</span> [<span class="hljs-string">Contributions</span>](<span class="hljs-link">#contributions</span>)
+<span class="hljs-bullet">-</span> [<span class="hljs-string">Contact</span>](<span class="hljs-link">#contact</span>)
+
+<span class="hljs-section">## Features</span>
+
+<span class="hljs-bullet">-</span> <span class="hljs-strong">**Recipe Management**</span>: Add, update, delete, and fetch recipes.
+<span class="hljs-bullet">-</span> <span class="hljs-strong">**User Management**</span>: Handle user registration, authentication, and roles (user/admin).
+<span class="hljs-bullet">-</span> <span class="hljs-strong">**Comments System**</span>: Enable users to comment on recipes.
+<span class="hljs-bullet">-</span> <span class="hljs-strong">**Favorites**</span>: Allow users to mark recipes as favorites.
+<span class="hljs-bullet">-</span> <span class="hljs-strong">**Ratings**</span>: Enable users to rate recipes.
+<span class="hljs-bullet">-</span> <span class="hljs-strong">**Blogs**</span>: Manage blog posts related to recipes.
+<span class="hljs-bullet">-</span> <span class="hljs-strong">**Secure Routes**</span>:
+<span class="hljs-bullet">  -</span> Protected routes for authenticated users.
+<span class="hljs-bullet">  -</span> Admin-specific routes for managing sensitive resources.
+
+<span class="hljs-section">## Tech Stack</span>
+
+<span class="hljs-bullet">-</span> <span class="hljs-strong">**Backend Framework**</span>: Node.js with Express
+<span class="hljs-bullet">-</span> <span class="hljs-strong">**Database**</span>: MongoDB (with <span class="hljs-code">`mongoose`</span> for schema modeling)
+<span class="hljs-bullet">-</span> <span class="hljs-strong">**Authentication**</span>: JSON Web Tokens (JWT)
+<span class="hljs-bullet">-</span> <span class="hljs-strong">**Environment Variables**</span>: <span class="hljs-code">`dotenv`</span>
+<span class="hljs-bullet">-</span> <span class="hljs-strong">**Testing**</span>: Jest and Supertest
+<span class="hljs-bullet">-</span> <span class="hljs-strong">**In-Memory Database for Testing**</span>: MongoMemoryServer
+
+<span class="hljs-section">## Project Structure</span>
+
+</code></pre>
+<p>backend/
+├── src/
+│   ├── controllers/         # Functions for handling routes
+│   │   └── urlController.js
+│   ├── models/              # Mongoose models
+│   │   └── urlModel.js
+│   ├── routes/              # Route definitions
+│   │   └── urlRoutes.js
+│   ├── utils/               # Utility functions
+│   │   └── validateUrl.js
+│   ├── config/              # Configuration files
+│   │   └── db.js
+│   ├── app.js               # Express app setup
+│   └── server.js            # Entry point
+├── Middleware/              # Authentication middleware
+│   ├── AuthMiddleware.js
+│   ├── AdminAuthMiddleware.js
+├── Routes/                  # Application routes
+│   ├── RecipeRoutes.js
+│   ├── userRoutes.js
+│   ├── CommentRoutes.js
+│   ├── FavoriteRoutes.js
+│   ├── RatingRoutes.js
+│   └── BlogRoutes.js
+├── .env                     # Environment variables
+├── package.json             # Project dependencies
+├── jest.setup.js            # Jest configuration
+└── <a href="http://README.html">README.md</a>                # Documentation</p>
+<pre><code>
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v16+)
+- MongoDB (local or cloud instance)
+- `npm` (or `yarn`)
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-repo/backend.git
+   cd backend
+</code></pre>
+<ol start="2">
+<li>
+<p>Install dependencies:</p>
+<pre><code class="language-bash">npm install
+</code></pre>
+</li>
+<li>
+<p>Create a <code>.env</code> file in the root directory and configure the following variables:</p>
+<pre><code class="language-env">PORT=8000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+</code></pre>
+</li>
+<li>
+<p>Start the server in development mode:</p>
+<pre><code class="language-bash">npm start
+</code></pre>
+</li>
+</ol>
+<h3 id="running-the-server">Running the Server</h3>
+<p>For production:</p>
+<pre><code class="language-bash">npm run start:prod
+</code></pre>
+<h3 id="running-tests">Running Tests</h3>
+<ul>
+<li>
+<p>Run unit tests using Jest:</p>
+<pre><code class="language-bash">npm <span class="hljs-built_in">test</span>
+</code></pre>
+</li>
+</ul>
+<h2 id="api-endpoints">API Endpoints</h2>
+<h3 id="public-endpoints">Public Endpoints</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Endpoint</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code>/api/recipes</code></td>
+<td>Fetch all recipes</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/api/users/register</code></td>
+<td>Register a new user</td>
+</tr>
+</tbody>
+</table>
+<h3 id="protected-endpoints">Protected Endpoints</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Endpoint</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POST</td>
+<td><code>/api/favorites</code></td>
+<td>Add a recipe to favorites</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/comments/:recipeId</code></td>
+<td>Fetch comments for a recipe</td>
+</tr>
+</tbody>
+</table>
+<h3 id="admin-endpoints">Admin Endpoints</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Endpoint</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DELETE</td>
+<td><code>/api/recipes/:id</code></td>
+<td>Delete a recipe</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/api/blogs</code></td>
+<td>Create a new blog post</td>
+</tr>
+</tbody>
+</table>
+<h2 id="middleware">Middleware</h2>
+<ul>
+<li><strong><code>AuthMiddleware</code></strong>: Protects routes by verifying the JWT token.</li>
+<li><strong><code>AdminAuthMiddleware</code></strong>: Ensures only admin users access certain routes.</li>
+</ul>
+<h2 id="testing-with-mongomemoryserver">Testing with MongoMemoryServer</h2>
+<p>This project uses <strong>MongoMemoryServer</strong> to spin up an in-memory MongoDB instance for testing purposes. MongoMemoryServer allows you to test the functionality of your routes without requiring a real MongoDB instance.</p>
+<h3 id="running-tests-1">Running Tests</h3>
+<ol>
+<li>
+<p>Install Jest and Supertest:</p>
+<pre><code class="language-bash">npm install --save-dev jest supertest
+</code></pre>
+</li>
+<li>
+<p>Run tests:</p>
+<pre><code class="language-bash">npm <span class="hljs-built_in">test</span>
+</code></pre>
+</li>
+</ol>
+<h2 id="license">License</h2>
+<p>This project is licensed under the MIT License. See the LICENSE file for details.</p>
+<h2 id="author">Author</h2>
+<ul>
+<li><strong>Hareem Gohar</strong><br>
+An experienced frontend and backend developer passionate about scalable and efficient web applications.</li>
+</ul>
+<h2 id="contributions">Contributions</h2>
+<p>Contributions are welcome! Feel free to open issues or submit pull requests to enhance this project.</p>
+<h2 id="contact">Contact</h2>
+<p>For any queries or support, contact me at [your-email@example.com].</p>
+<pre><code>
+### Improvements:
+- Added a **Table of Contents** to allow easy navigation.
+- Enhanced readability by breaking up large chunks of text into smaller, digestible sections.
+- Improved formatting for the API endpoints section with a clean, responsive table structure.
+- Included a **Testing** section with clearer instructions.
+- Cleaned up some of the descriptions and formatted them to enhance clarity.
+
+This structure should give your repo a polished, professional feel. You can add your personal contact and any other relevant details.</code></pre>
+
+            
+            
+        </body>
+        </html>
